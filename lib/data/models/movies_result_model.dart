@@ -5,7 +5,7 @@ class MoviesResultModel {
  
 
   MoviesResultModel(
-      { this.movies,});
+      {this.movies,});
 
   MoviesResultModel.fromJson(Map<String, dynamic> json) {
     if (json['results'] != null) {

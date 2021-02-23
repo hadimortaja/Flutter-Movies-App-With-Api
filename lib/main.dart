@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
+import 'package:movies_app_api/data/core/api_client.dart';
 import 'package:movies_app_api/data/data_sources/movie_remote_data_source.dart';
 
 void main() {
-  Client apiClient = Client();
+  ApiClient apiClient = ApiClient(Client());
   MovieRemoteDataSource dataSource = MovieRemoteDataSourceImpl(apiClient);
   dataSource.getTrending();
   dataSource.getPopular();
+  dataSource.getCommingSoon();
+  dataSource.getPlayingNow();
 
   runApp(MyApp());
 }
@@ -15,6 +18,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
