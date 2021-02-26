@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies_app_api/common/constants/size_constants.dart';
 import 'package:movies_app_api/common/screenUtil/screenutil.dart';
 import 'package:movies_app_api/domain/entities/movie_entity.dart';
+import 'package:movies_app_api/presentation/blocs/movie_backdrop/movie_backdrop_bloc.dart';
 import 'package:movies_app_api/presentation/journyes/home/movie_carousel/animated_movie_card_widget.dart';
 import 'package:movies_app_api/presentation/journyes/home/movie_carousel/movie_card_widget.dart';
 import 'package:movies_app_api/common/extensions/size_extensions.dart';
@@ -39,19 +41,23 @@ class _MoviePageViewState extends State<MoviePageView> {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.symmetric(vertical: Sizes.dimen_10.h),
-      height: ScreenUtil.screenHeight *0.35,
+      height: ScreenUtil.screenHeight * 0.35,
       child: PageView.builder(
         controller: _pageController,
         itemBuilder: (context, index) {
           final MovieEntity movie = widget.movies[index];
           return AnimatedMovieCardWidget(
-            index: index,
-            pageController: _pageController,
-              movieId: movie.id, posterPath: movie.posterPath);
+              index: index,
+              pageController: _pageController,
+              movieId: movie.id,
+              posterPath: movie.posterPath);
         },
         pageSnapping: true,
         itemCount: widget.movies?.length ?? 0,
-        onPageChanged: (index) {},
+        onPageChanged: (index) {
+          BlocProvider.of<MovieBackdropBloc>(context)
+              .add(MovieBackdropChangedEvent(widget.movies[index]));
+        },
       ),
     );
   }

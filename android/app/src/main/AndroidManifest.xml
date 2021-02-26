@@ -1,5 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.h.mortaja.movies_app_api">
+    <uses-permission android:name="android.permission.INTERNET"/>
+
    <application
         android:label="movies_app_api"
         android:usesCleartextTraffic="true"
