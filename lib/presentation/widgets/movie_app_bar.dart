@@ -22,7 +22,9 @@ class MovieAppBar extends StatelessWidget {
                 color: Colors.white,
                 size: Sizes.dimen_12.h,
               ),
-              onPressed: () {}),
+              onPressed: () {
+                Scaffold.of(context).openDrawer();
+              }),
           Expanded(
               child: Logo(
             height: Sizes.dimen_14,

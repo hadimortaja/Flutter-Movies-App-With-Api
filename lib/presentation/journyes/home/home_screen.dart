@@ -4,6 +4,7 @@ import 'package:movies_app_api/presentation/blocs/movie_backdrop/movie_backdrop_
 import 'package:movies_app_api/presentation/blocs/movie_carousel/movie_carousel_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies_app_api/presentation/blocs/movie_tabed/movie_tabed_bloc.dart';
+import 'package:movies_app_api/presentation/journyes/drawer/navigation_drawer.dart';
 
 import 'movie_carousel/movie_carousel_widget.dart';
 import 'movie_tabbed/movie_tabbed_widget.dart';
@@ -51,6 +52,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
       ],
       child: Scaffold(
+        drawer: NavigationDrawer(),
           body: BlocBuilder<MovieCarouselBloc, MovieCarouselState>(
         cubit: movieCarouselBloc,
         //bloc: movieCarouselBloc,

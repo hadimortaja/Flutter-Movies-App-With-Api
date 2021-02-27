@@ -13,12 +13,12 @@ class MovieApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: "Movie App",
       theme: ThemeData(
-        primaryColor: AppColor.vulcan,
-        scaffoldBackgroundColor: AppColor.vulcan,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-        textTheme: ThemeText.getTextTheme(),
-        appBarTheme: const AppBarTheme(elevation: 0)
-      ),
+          primaryColor: AppColor.vulcan,
+          accentColor: AppColor.royalBlue,
+          scaffoldBackgroundColor: AppColor.vulcan,
+          visualDensity: VisualDensity.adaptivePlatformDensity,
+          textTheme: ThemeText.getTextTheme(),
+          appBarTheme: const AppBarTheme(elevation: 0)),
       home: HomeScreen(),
     );
   }
