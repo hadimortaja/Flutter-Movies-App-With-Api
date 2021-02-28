@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movies_app_api/common/constants/languages.dart';
 import 'package:movies_app_api/common/constants/size_constants.dart';
+import 'package:movies_app_api/common/constants/translation_constants.dart';
 import 'package:movies_app_api/common/extensions/size_extensions.dart';
+import 'package:movies_app_api/common/extensions/String_extensions.dart';
+import 'package:movies_app_api/presentation/app_localizations.dart';
+import 'package:movies_app_api/presentation/blocs/language/language_bloc.dart';
 import 'package:movies_app_api/presentation/journyes/drawer/navigation_expanded_list_item.dart';
 import 'package:movies_app_api/presentation/journyes/drawer/navigation_list_item.dart';
 import 'package:movies_app_api/presentation/widgets/logo.dart';
@@ -33,19 +39,22 @@ class NavigationDrawer extends StatelessWidget {
               ),
             ),
             NavigationListIem(
-              title: "Favorite Movies",
+              title: TranslationConstants.favoriteMovies.t(context),
               onPressed: () {},
             ),
             NavigationExpandedListItem(
-                title: 'Language',
-                onPressed: () {},
-                children: ['English', 'العربية']),
+                title: TranslationConstants.language.t(context),
+                onPressed: (index) {
+                  BlocProvider.of<LanguageBloc>(context)
+                      .add(ToggleLanguageEvent(Languages.languages[index]));
+                },
+                children: Languages.languages.map((e) => e.value).toList()),
             NavigationListIem(
-              title: "Feedback",
+              title: TranslationConstants.feedback.t(context),
               onPressed: () {},
             ),
             NavigationListIem(
-              title: "About",
+              title: TranslationConstants.about.t(context),
               onPressed: () {},
             )
           ],

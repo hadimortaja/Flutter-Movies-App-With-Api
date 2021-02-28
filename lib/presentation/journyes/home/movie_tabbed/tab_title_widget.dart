@@ -3,6 +3,7 @@ import 'package:movies_app_api/common/constants/size_constants.dart';
 import 'package:movies_app_api/presentation/themes/app_color.dart';
 import 'package:movies_app_api/presentation/themes/theme_text.dart';
 import 'package:movies_app_api/common/extensions/size_extensions.dart';
+import 'package:movies_app_api/common/extensions/string_extensions.dart';
 
 class TabTitleWidget extends StatelessWidget {
   final String title;
@@ -27,7 +28,7 @@ class TabTitleWidget extends StatelessWidget {
                     color: isSelected ? AppColor.royalBlue : Colors.transparent,
                     width: Sizes.dimen_1.h))),
         child: Text(
-          title,
+          title.t(context),
           style: isSelected
               ? Theme.of(context).textTheme.royalBlueSubtitle1
               : Theme.of(context).textTheme.subtitle1,

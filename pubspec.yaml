@@ -31,6 +31,8 @@ dependencies:
   get_it: ^6.0.0
   google_fonts: ^1.1.0
   http: ^0.12.1
+  flutter_localizations:
+     sdk: flutter
 
 dev_dependencies:
   flutter_test:
@@ -49,6 +51,7 @@ flutter:
   assets:
     - assets/images/
     - assets/svgs/
+    - assets/languages/
   #   - images/a_dot_ham.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

@@ -12,24 +12,4 @@ void main() {
   runApp(MovieApp());
 }
 
-// Future<void> main() async {
-//   unawaited(getIt.init());
-//   GetTrending getTrending = getIt.getItInstance<GetTrending>();
-//   final Either<AppError, List<MovieEntity>> eitherResponse =
-//       await getTrending(NoParams());
-//   eitherResponse.fold(
-//     (l) {
-//       print("error");
-//       print(l);
-//     },
-//     (r) {
-//       print("List of Movies");
-//       print(r);
-//     },
-
-    
-//   );
-//   runApp(MyApp());
-// }
-
 

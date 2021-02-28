@@ -8,6 +8,7 @@ import 'package:movies_app_api/domain/usecases/get_comming_soon.dart';
 import 'package:movies_app_api/domain/usecases/get_playing_now.dart';
 import 'package:movies_app_api/domain/usecases/get_popular.dart';
 import 'package:movies_app_api/domain/usecases/get_trending.dart';
+import 'package:movies_app_api/presentation/blocs/language/language_bloc.dart';
 import 'package:movies_app_api/presentation/blocs/movie_backdrop/movie_backdrop_bloc.dart';
 import 'package:movies_app_api/presentation/blocs/movie_carousel/movie_carousel_bloc.dart';
 import 'package:movies_app_api/presentation/blocs/movie_tabed/movie_tabed_bloc.dart';
@@ -39,11 +40,14 @@ Future init() async {
       ));
   getItInstance.registerFactory(() => MovieBackdropBloc());
 
-  getItInstance.registerFactory(() => MovieTabedBloc(
-    getPopular: GetPopular(getItInstance()),
-    getComingSoon: GetComingSoon(getItInstance()),
-    getPlayingNow: GetPlayingNow((getItInstance()),
-  ),
-  )
+  getItInstance.registerFactory(
+    () => MovieTabedBloc(
+      getPopular: GetPopular(getItInstance()),
+      getComingSoon: GetComingSoon(getItInstance()),
+      getPlayingNow: GetPlayingNow(
+        (getItInstance()),
+      ),
+    ),
   );
+  getItInstance.registerSingleton<LanguageBloc>(LanguageBloc());
 }
