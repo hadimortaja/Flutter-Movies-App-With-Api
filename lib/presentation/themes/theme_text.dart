@@ -1,10 +1,8 @@
-
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:movies_app_api/common/constants/size_constants.dart';
 import 'package:movies_app_api/common/extensions/size_extensions.dart';
 import 'package:movies_app_api/presentation/themes/app_color.dart';
-
 
 class ThemeText {
   const ThemeText._();
@@ -15,9 +13,17 @@ class ThemeText {
         fontSize: Sizes.dimen_20.sp,
         color: Colors.white,
       );
+  static TextStyle get _whiteHeadline5 => _poppinsTextTheme.headline5.copyWith(
+        fontSize: Sizes.dimen_24.sp,
+        color: Colors.white,
+      );
 
   static TextStyle get whiteSubtitle1 => _poppinsTextTheme.subtitle1.copyWith(
         fontSize: Sizes.dimen_16.sp,
+        color: Colors.white,
+      );
+  static TextStyle get _whiteButton => _poppinsTextTheme.button.copyWith(
+        fontSize: Sizes.dimen_14.sp,
         color: Colors.white,
       );
 
@@ -30,10 +36,11 @@ class ThemeText {
       );
 
   static getTextTheme() => TextTheme(
-        headline6: _whiteHeadline6,
-        subtitle1: whiteSubtitle1,
-        bodyText2: whiteBodyText2,
-      );
+      headline5: _whiteHeadline5,
+      headline6: _whiteHeadline6,
+      subtitle1: whiteSubtitle1,
+      bodyText2: whiteBodyText2,
+      button: _whiteButton);
 }
 
 extension ThemeTextExtension on TextTheme {

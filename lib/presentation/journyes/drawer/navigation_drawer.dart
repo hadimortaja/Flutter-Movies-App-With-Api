@@ -9,7 +9,10 @@ import 'package:movies_app_api/presentation/app_localizations.dart';
 import 'package:movies_app_api/presentation/blocs/language/language_bloc.dart';
 import 'package:movies_app_api/presentation/journyes/drawer/navigation_expanded_list_item.dart';
 import 'package:movies_app_api/presentation/journyes/drawer/navigation_list_item.dart';
+import 'package:movies_app_api/presentation/themes/app_color.dart';
+import 'package:movies_app_api/presentation/widgets/app_dialog.dart';
 import 'package:movies_app_api/presentation/widgets/logo.dart';
+import 'package:wiredash/wiredash.dart';
 
 class NavigationDrawer extends StatelessWidget {
   const NavigationDrawer();
@@ -51,15 +54,32 @@ class NavigationDrawer extends StatelessWidget {
                 children: Languages.languages.map((e) => e.value).toList()),
             NavigationListIem(
               title: TranslationConstants.feedback.t(context),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).pop();
+                Wiredash.of(context).show();
+              },
             ),
             NavigationListIem(
               title: TranslationConstants.about.t(context),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).pop();
+                _showDialog(context);
+              },
             )
           ],
         ),
       ),
     );
+  }
+
+  void _showDialog(BuildContext context) {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return AppDialog(
+              title: TranslationConstants.about,
+              description: TranslationConstants.aboutDescription,
+              buttonText: TranslationConstants.okay);
+        });
   }
 }

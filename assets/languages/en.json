@@ -5,6 +5,8 @@
     "about" : "About",
     "popular" : "POPULAR",
     "now" : "NOW",
-    "soon" : "SOON"
+    "soon" : "SOON",
+    "ok":"OK",
+    "aboutDescription":"This App Is Developed By Hadi Mortaja and It is used to view movies, their dates, ratings, and their trailers, and you can search for the movie you want and many other features."
     
 }
