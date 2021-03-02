@@ -7,6 +7,9 @@
     "now" : "NOW",
     "soon" : "SOON",
     "ok":"OK",
-    "aboutDescription":"This App Is Developed By Hadi Mortaja and It is used to view movies, their dates, ratings, and their trailers, and you can search for the movie you want and many other features."
-    
+    "retry":"Retry",
+    "somethingWentWrong":"Something went wrong...",
+    "checkNetwork":"Please check your network connection and press Retry button or put in as a bug by pressing Feedback button.",
+    "aboutDescription":"This App Is Developed By Hadi Mortaja and It is used to view movies, their dates, ratings, and their trailers, and you can search for the movie you want and many other features.",
+    "noMovies":"Sorry, No Movies under this section"
 }

@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:movies_app_api/data/data_sources/movie_remote_data_source.dart';
 import 'package:movies_app_api/data/models/movie_model.dart';
 import 'package:movies_app_api/domain/entities/app_error.dart';
@@ -15,8 +17,11 @@ class MovieRepositoryImpl extends MovieRepository {
     try {
       final movies = await remoteDataSource.getTrending();
       return Right(movies);
-    } on Exception {
-      return Left(AppError('Error'));
+    } on SocketException {
+      return Left(AppError(AppErrorType.network));
+    } on Exception{
+            return Left(AppError(AppErrorType.api));
+
     }
   }
 
@@ -25,8 +30,11 @@ class MovieRepositoryImpl extends MovieRepository {
     try {
       final movies = await remoteDataSource.getCommingSoon();
       return Right(movies);
-    } on Exception {
-      return Left(AppError('Error'));
+    } on SocketException {
+      return Left(AppError(AppErrorType.network));
+    } on Exception{
+            return Left(AppError(AppErrorType.api));
+
     }
   }
 
@@ -35,8 +43,11 @@ class MovieRepositoryImpl extends MovieRepository {
     try {
       final movies = await remoteDataSource.getPlayingNow();
       return Right(movies);
-    } on Exception {
-      return Left(AppError('Error'));
+    } on SocketException {
+      return Left(AppError(AppErrorType.network));
+    } on Exception{
+            return Left(AppError(AppErrorType.api));
+
     }
   }
 
@@ -45,8 +56,11 @@ class MovieRepositoryImpl extends MovieRepository {
     try {
       final movies = await remoteDataSource.getPopular();
       return Right(movies);
-    } on Exception {
-      return Left(AppError('Error'));
+    } on SocketException {
+      return Left(AppError(AppErrorType.network));
+    } on Exception{
+            return Left(AppError(AppErrorType.api));
+
     }
   }
 }
