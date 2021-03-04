@@ -4,6 +4,8 @@ import 'package:movies_app_api/common/constants/size_constants.dart';
 import 'package:movies_app_api/common/extensions/size_extensions.dart';
 import 'package:movies_app_api/common/extensions/string_extensions.dart';
 import 'package:movies_app_api/data/core/api_constants.dart';
+import 'package:movies_app_api/presentation/journyes/movie_details/movie_detail_screen.dart';
+import 'package:movies_app_api/presentation/journyes/movie_details/movie_details_arguments.dart';
 
 
 class MovieTabCardWidget extends StatelessWidget {
@@ -15,7 +17,13 @@ class MovieTabCardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: (){},
+      onTap: (){
+        Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (_) => MovieDetailScreen(
+                      movieDetailArguments: MovieDetailArguments(movieId))));
+      },
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [

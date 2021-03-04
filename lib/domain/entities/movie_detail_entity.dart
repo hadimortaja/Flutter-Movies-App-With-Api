@@ -9,8 +9,8 @@ class MovieDetailEntity extends Equatable {
   final String backdropPath;
   final String posterPath;
 
-  MovieDetailEntity(this.id, this.title, this.overview, this.releaseDate, this.voteAverage, this.backdropPath, this.posterPath);
+  MovieDetailEntity({this.id, this.title, this.overview, this.releaseDate, this.voteAverage, this.backdropPath, this.posterPath});
 
   @override
-  List<Object> get props => throw UnimplementedError();
+  List<Object> get props => [id];
 }
