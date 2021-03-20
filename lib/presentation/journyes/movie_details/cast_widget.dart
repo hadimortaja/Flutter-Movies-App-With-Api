@@ -40,7 +40,7 @@ class CastWidget extends StatelessWidget {
                               width: Sizes.dimen_150.w,
                               imageUrl:
                                   '${ApiConstants.BASE_IMAGE_URL}${castEntity.posterPath}'),
-                        ),
+                        ),  
                       )
                     ],
                   ),
